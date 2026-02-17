@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import '../TEST/solar-signage-demo-app.dart';
 import '../models/pt.dart';
-import '../widgets/bottom-state-bar.dart';
-import '../widgets/header-today-card.dart';
 import '../widgets/power-flow-painter.dart' show PowerFlowPainter;
 import '../widgets/power-load-widget.dart' show PowerLoadWidget;
 import '../widgets/power-source-widget.dart' show PowerSourceWidget;
-import '../widgets/production-chart.dart';
 
 class AhmetPasliScreen extends StatefulWidget {
   const AhmetPasliScreen({super.key});
@@ -29,315 +26,304 @@ class _AhmetPasliScreenState extends State<AhmetPasliScreen>
   }
 
   @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final dataProd = _mockSeries(48, base: 1.6, variance: 1.2);
     final dataCons = _mockSeries(48, base: 1.2, variance: 0.8);
     final width = MediaQuery.of(context).size.width;
     return Padded(
-      child: Row(
+      child: Column(
         children: [
-          Expanded(
-            flex: 2,
-            child: Container(
-              padding: EdgeInsets.only(left: 20, top: 20),
-              child: Stack(
-                children: [
-                  Positioned(
-                    left: 40,
-                    top: 80,
-                    child: Transform.rotate(
-                      angle: -0.3, // 90 derece
-                      child: Text(
-                        'Cordel Enerji',
-                        style: TextStyle(
-                          fontSize: 46,
-                          color: Colors.white.withOpacity(0.1),
-                        ),
+          Container(
+            padding: EdgeInsets.only(left: 20, top: 20),
+            child: Stack(
+              children: [
+                Positioned(
+                  left: 40,
+                  top: 80,
+                  child: Transform.rotate(
+                    angle: -0.3, // 90 derece
+                    child: Text(
+                      'Cordel Enerji',
+                      style: TextStyle(
+                        fontSize: 46,
+                        color: Colors.white.withOpacity(0.1),
                       ),
                     ),
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Ahmet Paslı",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 34,
-                          fontWeight: FontWeight.bold,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Ahmet Paslı",
+                      style: TextStyle(
+                        color: Colors.deepOrangeAccent,
+                        fontSize: 44,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.wb_sunny_rounded,
+                                color: Colors.yellow,
+                                size: 30,
+                              ),
+                              SizedBox(width: 15),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    RichText(
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: '6.44 ',
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 34,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: 'kWh',
+                                            style: const TextStyle(
+                                              color: Colors.lightBlue,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Text(
+                                      "Yield today",
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 20),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.wb_sunny_rounded,
-                                  color: Colors.yellow,
-                                  size: 30,
-                                ),
-                                SizedBox(width: 15),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      RichText(
-                                        text: TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: '6.44 ',
-                                              style: const TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 24,
-                                                fontWeight: FontWeight.bold,
-                                              ),
+                        //SizedBox(height: 10),
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.attach_money_rounded,
+                                color: Colors.yellow,
+                                size: 30,
+                              ),
+                              SizedBox(width: 15),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    RichText(
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: '31.78 ',
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 34,
+                                              fontWeight: FontWeight.bold,
                                             ),
-                                            TextSpan(
-                                              text: 'kWh',
-                                              style: const TextStyle(
-                                                color: Colors.lightBlue,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.normal,
-                                              ),
+                                          ),
+                                          TextSpan(
+                                            text: 'MWh',
+                                            style: const TextStyle(
+                                              color: Colors.lightBlue,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.normal,
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
-                                      Text(
-                                        "Yield today",
-                                        style: TextStyle(color: Colors.grey),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                    Text(
+                                      "Revenue today",
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                          //SizedBox(height: 10),
-                          Expanded(
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.attach_money_rounded,
-                                  color: Colors.yellow,
-                                  size: 30,
-                                ),
-                                SizedBox(width: 15),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      RichText(
-                                        text: TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: '31.78 ',
-                                              style: const TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 24,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'MWh',
-                                              style: const TextStyle(
-                                                color: Colors.lightBlue,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.normal,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Text(
-                                        "Revenue today",
-                                        style: TextStyle(color: Colors.grey),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 40),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.bolt_rounded,
-                                  color: Colors.yellow,
-                                  size: 30,
-                                ),
-                                SizedBox(width: 15),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      RichText(
-                                        text: TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: '00.00 ',
-                                              style: const TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 24,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'KWh',
-                                              style: const TextStyle(
-                                                color: Colors.lightBlue,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.normal,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Text(
-                                        "Total yield",
-                                        style: TextStyle(color: Colors.grey),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          //SizedBox(height: 10),
-                          Expanded(
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.power_rounded,
-                                  color: Colors.yellow,
-                                  size: 30,
-                                ),
-                                SizedBox(width: 15),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      RichText(
-                                        text: TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: '00.00 ',
-                                              style: const TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 24,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'KWh',
-                                              style: const TextStyle(
-                                                color: Colors.lightBlue,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.normal,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Text(
-                                        "Inverter rated power",
-                                        style: TextStyle(color: Colors.grey),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 3,
-            child: Column(
-              children: [
-                Center(
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Positioned(
-                        right: 40,
-                        top: 80,
-                        child: Transform.rotate(
-                          angle: -0.3, // 90 derece
-                          child:  Text('Cordel Enerji', style: TextStyle(fontSize: 46, color: Colors.white.withOpacity(0.1)),),
-                        ),),
-                      AnimatedBuilder(
-                        animation: _controller,
-                        builder: (context, _) {
-                          return CustomPaint(
-                            painter: PowerFlowPainter(_controller.value),
-                            size: Size(width * 0.35, 330),
-                          );
-                        },
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          PowerSourceWidget(
-                            child: Image.asset(
-                              "assets/pylone_cable_icon.png",
-                              width: 150,
-                              height: 150,
-                            ),
-                            label: "Grid",
-                            subtitle: "Current power",
-                            value: "--",
-                            color: Colors.grey,
-                          ),
-                          const PowerLoadWidget(),
-                          PowerSourceWidget(
-                            child: Image.asset(
-                              "assets/panel.png",
-                              width: 150,
-                              height: 150,
-                            ),
-                            label: "PV",
-                            subtitle: "Output power",
-                            value: "42.792",
-                            color: Colors.amberAccent,
-                          ),
-                        ],
-                      ),
-                      Positioned(
-                        right: 0,
-                        top: 70,
-                        child: Image.asset(
-                          "sun-icon2.png",
-                          width: 60,
-                          height: 60,
                         ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+                    SizedBox(height: 40),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.bolt_rounded,
+                                color: Colors.yellow,
+                                size: 30,
+                              ),
+                              SizedBox(width: 15),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    RichText(
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: '00.00 ',
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 34,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: 'KWh',
+                                            style: const TextStyle(
+                                              color: Colors.lightBlue,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Text(
+                                      "Total yield",
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        //SizedBox(height: 10),
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.power_rounded,
+                                color: Colors.yellow,
+                                size: 30,
+                              ),
+                              SizedBox(width: 15),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    RichText(
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: '00.00 ',
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 34,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: 'KWh',
+                                            style: const TextStyle(
+                                              color: Colors.lightBlue,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Text(
+                                      "Inverter rated power",
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ],
             ),
+          ),
+          SizedBox(height: 40,),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Positioned(
+                    right: 40,
+                    top: 80,
+                    child: Transform.rotate(
+                      angle: -0.3, // 90 derece
+                      child:  Text('Cordel Enerji', style: TextStyle(fontSize: 46, color: Colors.white.withOpacity(0.1)),),
+                    ),),
+                  AnimatedBuilder(
+                    animation: _controller,
+                    builder: (context, _) {
+                      return CustomPaint(
+                        painter: PowerFlowPainter(_controller.value),
+                        size: Size(width * 0.35, 330),
+                      );
+                    },
+                  ),
+                  SizedBox(height: 40,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      PowerSourceWidget(
+                        label: "Grid",
+                        subtitle: "Current power",
+                        value: "--",
+                        color: Colors.grey,
+                        child: Image.asset(
+                          "assets/pylone_cable_icon.png",
+                          width: 200,
+                          height: 200,
+                        ),
+                      ),
+                      const PowerLoadWidget(),
+                      PowerSourceWidget(
+                        label: "PV",
+                        subtitle: "Output power",
+                        value: "42.792",
+                        color: Colors.amberAccent,
+                        child: Image.asset(
+                          "assets/panel.png",
+                          width: 300,
+                          height: 300,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Positioned(
+                    right: 60,
+                    top: 20,
+                    child: Image.asset(
+                      "sun-icon2.png",
+                      width: 70,
+                      height: 70,
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ],
       ),
@@ -353,5 +339,11 @@ class _AhmetPasliScreenState extends State<AhmetPasliScreen>
       out.add(Pt(i, double.parse(v.toStringAsFixed(2))));
     }
     return out;
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }

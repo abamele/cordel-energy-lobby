@@ -10,7 +10,7 @@ class PowerLoadWidget extends StatelessWidget {
         Container(
           //margin: EdgeInsets.only(top: 40),
           child: Center(
-            child: Image.asset("assets/home_icon.png", width: 150, height: 150,),
+            child: Image.asset("assets/home_icon.png", width: 300, height: 300,),
           ),
         ),
         const SizedBox(height: 8),

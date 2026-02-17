@@ -47,6 +47,7 @@ class _AnimatedPhotoSliderState extends State<AnimatedPhotoSlider> {
         _images[_currentIndex],
         key: ValueKey<String>(_images[_currentIndex]),
         fit: BoxFit.fill,
+        height: MediaQuery.of(context).size.height * 0.8,
         width: MediaQuery.of(context).size.width,
         //height: double.infinity,
       ),

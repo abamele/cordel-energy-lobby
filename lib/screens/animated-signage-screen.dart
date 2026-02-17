@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:solar_lobby_cordel/screens/ahmet-pasl%C4%B1.dart';
 import 'package:solar_lobby_cordel/screens/ekol_osb.dart';
-import 'package:solar_lobby_cordel/screens/sustainability-section.dart';
 import 'package:solar_lobby_cordel/screens/toroslar-screen.dart';
 import 'package:solar_lobby_cordel/widgets/tickerBar.dart';
 import 'package:video_player/video_player.dart';
@@ -13,8 +12,6 @@ import 'aslar-press-screen.dart';
 import 'awards-section.dart';
 import '../widgets/clockChip.dart';
 import 'contact-section.dart' show ContactSection;
-import 'global-project-section.dart';
-import 'live-dash-section.dart';
 import 'mission-vision.dart';
 import 'orbey-graphics-screens.dart';
 import 'ours-job.dart';
@@ -66,7 +63,7 @@ class _AnimatedsignagescreenState extends State<Animatedsignagescreen> with Sing
 
   Future<void> _initializeAll() async {
     // Step 1 — Initialize video first
-    _video = VideoPlayerController.asset('assets/video/cordelVideo.mp4')
+    _video = VideoPlayerController.asset('assets/video/sarj_reklam_full.mp4')
       ..setLooping(true);
 
     await _video!.initialize();
@@ -139,87 +136,97 @@ class _AnimatedsignagescreenState extends State<Animatedsignagescreen> with Sing
     return Scaffold(
       body: Column(
         children: [
-          // Video area
-          SizedBox(
-            height: size.height * 0.45,
-            width: double.infinity,
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                // ✅ video shown only after loading completes
-                FittedBox(
-                  fit: BoxFit.fill,
-                  child: SizedBox(
-                    width: _video!.value.size.width,
-                    height: _video!.value.size.height,
-                    child: VideoPlayer(_video!),
-                  ),
-                ),
+          Row(
+            children: [
+              // Video area
+              Expanded(
+                flex: 1,
+                child: SizedBox(
+                  height: size.height * 0.93,
+                  width: double.infinity,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      // ✅ video shown only after loading completes
+                      FittedBox(
+                        fit: BoxFit.fill,
+                        child: SizedBox(
+                          width: _video!.value.size.width,
+                          height: _video!.value.size.height,
+                          child: VideoPlayer(_video!),
+                        ),
+                      ),
 
-                // Clock
-                Positioned(top: 20, right: 0, child: ClockChip()),
+                      // Clock
+                      Positioned(top: 20, right: 0, child: ClockChip()),
 
-                // Unmute overlay
-                if (_isMuted)
-                  Positioned.fill(
-                    child: Material(
-                      color: Colors.black.withOpacity(0.25),
-                      child: InkWell(
-                        onTap: _unmuteAndPlay,
-                        child: Center(
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                            decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.9),
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: const [
-                                Icon(Icons.volume_up, size: 28),
-                                SizedBox(width: 10),
-                                Text("Sesi Aç", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
-                              ],
+                      // Unmute overlay
+                      if (_isMuted)
+                        Positioned.fill(
+                          child: Material(
+                            color: Colors.black.withOpacity(0.25),
+                            child: InkWell(
+                              onTap: _unmuteAndPlay,
+                              child: Center(
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white.withOpacity(0.9),
+                                    borderRadius: BorderRadius.circular(16),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: const [
+                                      Icon(Icons.volume_up, size: 28),
+                                      SizedBox(width: 10),
+                                      Text("Sesi Aç", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                  ),
 
-                // Mute toggle button
-                Positioned(
-                  right: 12,
-                  bottom: 12,
-                  child: FloatingActionButton.small(
-                    heroTag: 'muteToggle',
-                    backgroundColor: Colors.black54,
-                    onPressed: () async {
-                      if (_isMuted) {
-                        await _unmuteAndPlay();
-                      } else {
-                        await _video!.setVolume(0.0);
-                        setState(() => _isMuted = true);
-                      }
-                    },
-                    child: Icon(_isMuted ? Icons.volume_off : Icons.volume_up, color: Colors.white),
+                      // Mute toggle button
+                      Positioned(
+                        right: 12,
+                        bottom: 12,
+                        child: FloatingActionButton.small(
+                          heroTag: 'muteToggle',
+                          backgroundColor: Colors.black54,
+                          onPressed: () async {
+                            if (_isMuted) {
+                              await _unmuteAndPlay();
+                            } else {
+                              await _video!.setVolume(0.0);
+                              setState(() => _isMuted = true);
+                            }
+                          },
+                          child: Icon(_isMuted ? Icons.volume_off : Icons.volume_up, color: Colors.white),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Container(
+                  height: size.height * 0.93,
+                  width: double.infinity,
+                  color: const Color(0xff22523D),
+                  child: PageView(
+                    controller: _pageController,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: _sections,
+                  ),
+                ),
+              ),
+            ],
           ),
 
           // Page sections
-          Container(
-            height: size.height * 0.48,
-            width: double.infinity,
-            color: const Color(0xff22523D),
-            child: PageView(
-              controller: _pageController,
-              physics: const NeverScrollableScrollPhysics(),
-              children: _sections,
-            ),
-          ),
 
           // Ticker bar
           Container(

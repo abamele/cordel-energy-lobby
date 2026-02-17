@@ -17,7 +17,7 @@ class Bullet extends StatelessWidget {
             child: Text(
               text,
               style: TextStyle(
-                fontSize: w * 0.016,
+                fontSize: 34,
                 color: Colors.white.withOpacity(0.95),
               ),
             ),

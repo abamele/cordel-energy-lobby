@@ -13,78 +13,72 @@ class ContactSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final w = MediaQuery.sizeOf(context).width;
     return Padded(
-      child: Row(
+      child: Column(
         children: [
-          Expanded(
-            flex: 3,
-            child: Container(
-              padding: EdgeInsets.only(left: 20, top: 40),
-              child: Stack(
-                children: [
-                  Positioned(
-                    left: 40,
-                    top: 80,
-                    bottom: 0,
-                    child: Transform.rotate(
-                      angle: -0.3, // 90 derece
-                      child:  Text('Cordel Enerji', style: TextStyle(fontSize: 46, color: Colors.white.withOpacity(0.1)),),
-                    ),),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const TitleT("İletişim"),
-                      const SizedBox(height: 10),
-                      Bullet("Web: www.cordel.com.tr"),
-                      Bullet("E-posta: info@cordel.com"),
-                      Bullet("Tel: +90 (850) 308 71 54"),
-                    ],
-                  ),
-                ],
-              ),
+          Container(
+            padding: EdgeInsets.only(left: 20, top: 40),
+            child: Stack(
+              children: [
+                Positioned(
+                  left: 40,
+                  top: 80,
+                  bottom: 0,
+                  child: Transform.rotate(
+                    angle: -0.3, // 90 derece
+                    child:  Text('Cordel Enerji', style: TextStyle(fontSize: 46, color: Colors.white.withOpacity(0.1)),),
+                  ),),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const TitleT("İletişim"),
+                    const SizedBox(height: 10),
+                    Bullet("Web: www.cordel.com.tr"),
+                    Bullet("E-posta: info@cordel.com"),
+                    Bullet("Tel: +90 (850) 308 71 54"),
+                  ],
+                ),
+              ],
             ),
           ),
-          Expanded(
-            flex: 2,
-            child: Container(
-              padding: EdgeInsets.all(20),
-              child: Stack(
-                children: [
-                  Positioned(
-                    right: 40,
-                    top: 80,
-                    child: Transform.rotate(
-                      angle: -0.3, // 90 derece
-                      child:  Text('Cordel Enerji', style: TextStyle(fontSize: 46, color: Colors.white.withOpacity(0.1)),),
-                    ),),
-                  Column(
-                    children: [
-                      const SizedBox(height: 20),
-                      const TitleT("Projelerimizi İnceleyin"),
-                      const SizedBox(height: 8),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: QrImageView(
-                          data: "https://example-solar.com/projects",
-                          version: QrVersions.auto,
-                          size: w * 0.12,
-                        ),
+          Container(
+            padding: EdgeInsets.all(20),
+            child: Stack(
+              children: [
+                Positioned(
+                  right: 40,
+                  top: 80,
+                  child: Transform.rotate(
+                    angle: -0.3, // 90 derece
+                    child:  Text('Cordel Enerji', style: TextStyle(fontSize: 46, color: Colors.white.withOpacity(0.1)),),
+                  ),),
+                Column(
+                  children: [
+                    const SizedBox(height: 20),
+                    const TitleT("Projelerimizi İnceleyin"),
+                    const SizedBox(height: 8),
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
                       ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "QR kodu tarayın",
-                        style: TextStyle(
-                          color: Colors.white.withOpacity(0.95),
-                          fontSize: w * 0.014,
-                        ),
+                      child: QrImageView(
+                        data: "https://example-solar.com/projects",
+                        version: QrVersions.auto,
+                        size: w * 0.12,
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      "QR kodu tarayın",
+                      style: TextStyle(
+                        color: Colors.white.withOpacity(0.95),
+                        fontSize: w * 0.014,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],

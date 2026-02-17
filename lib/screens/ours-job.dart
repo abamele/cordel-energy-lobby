@@ -22,176 +22,172 @@ class _OursJobState extends State<OursJob> {
   @override
   Widget build(BuildContext context) {
     return Padded(
-      child: Row(
+      child: Column(
         children: [
-          Expanded(
-            child: Stack(
-              children: [
-                Positioned(
-                  left: 40,
-                  top: 80,
-                  child: Transform.rotate(
-                    angle: -0.3, // 90 derece
-                    child: Text(
-                      'Cordel Enerji',
-                      style: TextStyle(
-                        fontSize: 46,
-                        color: Colors.white.withOpacity(0.1),
-                      ),
+          Stack(
+            children: [
+              Positioned(
+                left: 40,
+                top: 80,
+                child: Transform.rotate(
+                  angle: -0.3, // 90 derece
+                  child: Text(
+                    'Cordel Enerji',
+                    style: TextStyle(
+                      fontSize: 46,
+                      color: Colors.white.withOpacity(0.1),
                     ),
                   ),
                 ),
-                Glass(
-                  //borderRadius: 20,
-                  //padding: const EdgeInsets.all(10),
-                  child:  FittedBox(
-                    fit: BoxFit.fill,
-                    child: AnimatedPhotoSlider(),
-                  ),
+              ),
+              Glass(
+                //borderRadius: 20,
+                //padding: const EdgeInsets.all(10),
+                child:  FittedBox(
+                  fit: BoxFit.fill,
+                  child: AnimatedPhotoSlider(),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          Expanded(
-            child: Stack(
-              children: [
-                Positioned(
-                  right: 40,
-                  top: 80,
-                  child: Transform.rotate(
-                    angle: -0.3, // 90 derece
-                    child: Text(
-                      'Cordel Enerji',
-                      style: TextStyle(
-                        fontSize: 46,
-                        color: Colors.white.withOpacity(0.1),
-                      ),
+          Stack(
+            children: [
+              Positioned(
+                right: 40,
+                top: 80,
+                child: Transform.rotate(
+                  angle: -0.3, // 90 derece
+                  child: Text(
+                    'Cordel Enerji',
+                    style: TextStyle(
+                      fontSize: 46,
+                      color: Colors.white.withOpacity(0.1),
                     ),
                   ),
                 ),
-                Glass(
-                  borderRadius: 20,
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "NE İŞ YAPIYORUZ",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white
+              ),
+              Glass(
+                borderRadius: 20,
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "NE İŞ YAPIYORUZ",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.deepOrangeAccent
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    Row(
+                      children: [
+                        Icon(Icons.check_box, color: Colors.green,),
+                        SizedBox(width: 15,),
+                        Expanded(
+                          child: Text(
+                            "Güneş Enerjisi Santralleri Kurulumları EPC Hizmeti Vermektetyiz.",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 20,),
-                      Row(
-                        children: [
-                          Icon(Icons.check_box, color: Colors.green,),
-                          SizedBox(width: 15,),
-                          Expanded(
-                            child: Text(
-                              "Güneş Enerjisi Santralleri Kurulumları EPC Hizmeti Vermektetyiz.",
-                              style: TextStyle(color: Colors.white, fontSize: 15),
-                            ),
+                      ],
+                    ),
+                    SizedBox(height: 5.0,),
+                    Row(
+                      children: [
+                        Icon(Icons.check_box, color: Colors.green,),
+                        SizedBox(width: 15,),
+                        Expanded(
+                          child: Text(
+                            "Fosil Yakıt Tüketiminden Elde Edilecek Enerjisi Isı Pompası Sürdürelebilir Enerji Kaynaklarından Elde Ediyoruz.",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
                           ),
-                        ],
-                      ),
-                      SizedBox(height: 5.0,),
-                      Row(
-                        children: [
-                          Icon(Icons.check_box, color: Colors.green,),
-                          SizedBox(width: 15,),
-                          Expanded(
-                            child: Text(
-                              "Fosil Yakıt Tüketiminden Elde Edilecek Enerjisi Isı Pompası Sürdürelebilir Enerji Kaynaklarından Elde Ediyoruz.",
-                              style: TextStyle(color: Colors.white, fontSize: 15),
-                            ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5.0,),
+                    Row(
+                      children: [
+                        Icon(Icons.check_box, color: Colors.green,),
+                        SizedBox(width: 15,),
+                        Expanded(
+                          child: Text(
+                            "ORC(Organic Rankine Cycle) İle Artık Isı Enerjilerinden Elektrik Enerjisi Üreterek Sisteme Tekrardan Geri Kazandırıyoruz.",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
                           ),
-                        ],
-                      ),
-                      SizedBox(height: 5.0,),
-                      Row(
-                        children: [
-                          Icon(Icons.check_box, color: Colors.green,),
-                          SizedBox(width: 15,),
-                          Expanded(
-                            child: Text(
-                              "ORC(Organic Rankine Cycle) İle Artık Isı Enerjilerinden Elektrik Enerjisi Üreterek Sisteme Tekrardan Geri Kazandırıyoruz.",
-                              style: TextStyle(color: Colors.white, fontSize: 15),
-                            ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5.0,),
+                    Row(
+                      children: [
+                        Icon(Icons.check_box, color: Colors.green,),
+                        SizedBox(width: 15,),
+                        Expanded(
+                          child: Text(
+                            "Biyokütle Santralleri Kuruyoruz.",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
                           ),
-                        ],
-                      ),
-                      SizedBox(height: 5.0,),
-                      Row(
-                        children: [
-                          Icon(Icons.check_box, color: Colors.green,),
-                          SizedBox(width: 15,),
-                          Expanded(
-                            child: Text(
-                              "Biyokütle Santralleri Kuruyoruz.",
-                              style: TextStyle(color: Colors.white, fontSize: 15),
-                            ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5.0,),
+                    Row(
+                      children: [
+                        Icon(Icons.check_box, color: Colors.green,),
+                        SizedBox(width: 15,),
+                        Expanded(
+                          child: Text(
+                            "Yeşil Hidrojen Reaktörlerimiz ile Doğalgaz Tüketimini Azaltıyoruz.",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
                           ),
-                        ],
-                      ),
-                      SizedBox(height: 5.0,),
-                      Row(
-                        children: [
-                          Icon(Icons.check_box, color: Colors.green,),
-                          SizedBox(width: 15,),
-                          Expanded(
-                            child: Text(
-                              "Yeşil Hidrojen Reaktörlerimiz ile Doğalgaz Tüketimini Azaltıyoruz.",
-                              style: TextStyle(color: Colors.white, fontSize: 15),
-                            ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5.0,),
+                    Row(
+                      children: [
+                        Icon(Icons.check_box, color: Colors.green,),
+                        SizedBox(width: 15,),
+                        Expanded(
+                          child: Text(
+                            "Gri Su Sistemleri ile Su Tüketimini Minimalize Ediyoruz.",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
                           ),
-                        ],
-                      ),
-                      SizedBox(height: 5.0,),
-                      Row(
-                        children: [
-                          Icon(Icons.check_box, color: Colors.green,),
-                          SizedBox(width: 15,),
-                          Expanded(
-                            child: Text(
-                              "Gri Su Sistemleri ile Su Tüketimini Minimalize Ediyoruz.",
-                              style: TextStyle(color: Colors.white, fontSize: 15),
-                            ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5.0,),
+                    Row(
+                      children: [
+                        Icon(Icons.check_box, color: Colors.green,),
+                        SizedBox(width: 15,),
+                        Expanded(
+                          child: Text(
+                            "Green Building Technologies İle Tamamen Kendi Enerjini Üreten Yeşil Ev Projelerimizi Hayata Geçiriyoruz.",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
                           ),
-                        ],
-                      ),
-                      SizedBox(height: 5.0,),
-                      Row(
-                        children: [
-                          Icon(Icons.check_box, color: Colors.green,),
-                          SizedBox(width: 15,),
-                          Expanded(
-                            child: Text(
-                              "Green Building Technologies İle Tamamen Kendi Enerjini Üreten Yeşil Ev Projelerimizi Hayata Geçiriyoruz.",
-                              style: TextStyle(color: Colors.white, fontSize: 15),
-                            ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5.0,),
+                    Row(
+                      children: [
+                        Icon(Icons.check_box, color: Colors.green,),
+                        SizedBox(width: 15,),
+                        Expanded(
+                          child: Text(
+                            "Doğalgazı Hidrojen Enerjisi ile Zenginleştirerek %50'ya Varan Doğalgaz Tasarrufu Sağlıyoruz.",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
                           ),
-                        ],
-                      ),
-                      SizedBox(height: 5.0,),
-                      Row(
-                        children: [
-                          Icon(Icons.check_box, color: Colors.green,),
-                          SizedBox(width: 15,),
-                          Expanded(
-                            child: Text(
-                              "Doğalgazı Hidrojen Enerjisi ile Zenginleştirerek %50'ya Varan Doğalgaz Tasarrufu Sağlıyoruz.",
-                              style: TextStyle(color: Colors.white, fontSize: 15),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),
