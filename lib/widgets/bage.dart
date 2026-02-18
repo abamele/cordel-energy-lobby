@@ -22,7 +22,7 @@ class BadgeT extends StatelessWidget {
           Text(
             text,
             style: TextStyle(
-              fontSize: w * 0.015,
+              fontSize: 15,
               fontWeight: FontWeight.w700,
               color: const Color(0xFF0B3B5A),
             ),

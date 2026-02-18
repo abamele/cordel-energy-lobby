@@ -61,7 +61,7 @@ class _EkolOSBScreenState extends State<EkolOSBScreen>
                       "Ekol OSB GES",
                       style: TextStyle(
                         color: Colors.deepOrangeAccent,
-                        fontSize: 44,
+                        fontSize: 34,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -88,7 +88,7 @@ class _EkolOSBScreenState extends State<EkolOSBScreen>
                                             text: '454.89 ',
                                             style: const TextStyle(
                                               color: Colors.white,
-                                              fontSize: 34,
+                                              fontSize: 24,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
@@ -134,7 +134,7 @@ class _EkolOSBScreenState extends State<EkolOSBScreen>
                                             text: '1.34 ',
                                             style: const TextStyle(
                                               color: Colors.white,
-                                              fontSize: 34,
+                                              fontSize: 24,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
@@ -184,7 +184,7 @@ class _EkolOSBScreenState extends State<EkolOSBScreen>
                                             text: '231.38 ',
                                             style: const TextStyle(
                                               color: Colors.white,
-                                              fontSize: 34,
+                                              fontSize: 24,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
@@ -230,7 +230,7 @@ class _EkolOSBScreenState extends State<EkolOSBScreen>
                                             text: '700.00 ',
                                             style: const TextStyle(
                                               color: Colors.white,
-                                              fontSize: 34,
+                                              fontSize: 24,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
@@ -297,20 +297,23 @@ class _EkolOSBScreenState extends State<EkolOSBScreen>
                         color: Colors.grey,
                         child: Image.asset(
                           "assets/pylone_cable_icon.png",
-                          width: 200,
-                          height: 200,
+                          width: 150,
+                          height: 150,
                         ),
                       ),
                       const PowerLoadWidget(),
-                      PowerSourceWidget(
-                        label: "PV",
-                        subtitle: "Output power",
-                        value: "42.792",
-                        color: Colors.amberAccent,
-                        child: Image.asset(
-                          "assets/panel.png",
-                          width: 300,
-                          height: 300,
+                      Container(
+                        margin: EdgeInsets.only(bottom: 20),
+                        child: PowerSourceWidget(
+                          label: "PV",
+                          subtitle: "Output power",
+                          value: "42.792",
+                          color: Colors.amberAccent,
+                          child: Image.asset(
+                            "assets/panel.png",
+                            width: 180,
+                            height: 180,
+                          ),
                         ),
                       ),
                     ],

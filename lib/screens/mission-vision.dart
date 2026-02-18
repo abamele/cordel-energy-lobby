@@ -74,7 +74,7 @@ class MissionVision extends StatelessWidget {
                     ),
                     Text(
                       "CORDEL yenilenebilir enerjisi A.Ş olarak dünya genelinde enerji dönüşümünü hızlandırmak ve fosil yakıtlardan kaynaklanan olumsuz etkileri azaltmak için güneş enerjisi ve diğer temiz enerji kaynakların günlük yaşamına entegre ederek düşük karbonlu bir gelecek inşa etmekteyiz. Yenilikçi teknoloji, enerji verimliliği ve toplumsal farkındalığı artırarak, gelecek nesiller yaşanabilir bir dünya bırakma sorumluluğuyla hareket ediyoruz. Müşterilerimizin, çalışanlarımızın ve toplumun refahını gözeten, etik değerlere bağlı ve sürekli gelişen bir enerji şirketi olarak çözümlerimizle fark yaratıyoruz.",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      style: TextStyle(color: Colors.white, fontSize: 15),
                     ),
                     SizedBox(height: 20),
                     Text(
@@ -87,7 +87,7 @@ class MissionVision extends StatelessWidget {
                     ),
                     Text(
                       "Biz, çevre dostu ve sürdürebilir enerji çözümleri sunarak dünya genelinde temiz ve güvenilir enerji kaynaklarına erişimi artırmayı hedefleyen lider bir şirketiz. CORDEL enerji ile geleceği aydınlık bir enerji dünyası kurmak için, yenilikçi teknolojileri kullanarak, toplumların ihtiyaçlarını karşılamak ve doğal kaynakları korayacak gezegenimiz için çalışıyoruz.",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      style: TextStyle(color: Colors.white, fontSize: 15),
                     ),
                   ],
                 ),

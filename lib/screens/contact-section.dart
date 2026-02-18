@@ -73,7 +73,7 @@ class ContactSection extends StatelessWidget {
                       "QR kodu tarayın",
                       style: TextStyle(
                         color: Colors.white.withOpacity(0.95),
-                        fontSize: w * 0.014,
+                        fontSize: 15,
                       ),
                     ),
                   ],

@@ -10,7 +10,7 @@ class TitleT extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        fontSize: 44,
+        fontSize: 34,
         color: Colors.deepOrangeAccent,
         fontWeight: FontWeight.w800,
         letterSpacing: 0.4,

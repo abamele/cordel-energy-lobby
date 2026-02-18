@@ -96,7 +96,7 @@ class AboutSection extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 10.0),
                           child: Text('Maroneia-Platanitis, 69400 Xylagani GREECE',
                             style:  GoogleFonts.playwriteNgModern(
-                              fontSize: 28,
+                              fontSize: 20,
                               color: Colors.white.withOpacity(0.95),
                             ),
                           ),

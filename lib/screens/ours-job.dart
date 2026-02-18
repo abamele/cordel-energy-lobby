@@ -88,7 +88,7 @@ class _OursJobState extends State<OursJob> {
                         Expanded(
                           child: Text(
                             "Güneş Enerjisi Santralleri Kurulumları EPC Hizmeti Vermektetyiz.",
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 15),
                           ),
                         ),
                       ],
@@ -101,7 +101,7 @@ class _OursJobState extends State<OursJob> {
                         Expanded(
                           child: Text(
                             "Fosil Yakıt Tüketiminden Elde Edilecek Enerjisi Isı Pompası Sürdürelebilir Enerji Kaynaklarından Elde Ediyoruz.",
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 15),
                           ),
                         ),
                       ],
@@ -114,7 +114,7 @@ class _OursJobState extends State<OursJob> {
                         Expanded(
                           child: Text(
                             "ORC(Organic Rankine Cycle) İle Artık Isı Enerjilerinden Elektrik Enerjisi Üreterek Sisteme Tekrardan Geri Kazandırıyoruz.",
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 15),
                           ),
                         ),
                       ],
@@ -127,7 +127,7 @@ class _OursJobState extends State<OursJob> {
                         Expanded(
                           child: Text(
                             "Biyokütle Santralleri Kuruyoruz.",
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 15),
                           ),
                         ),
                       ],
@@ -140,7 +140,7 @@ class _OursJobState extends State<OursJob> {
                         Expanded(
                           child: Text(
                             "Yeşil Hidrojen Reaktörlerimiz ile Doğalgaz Tüketimini Azaltıyoruz.",
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 15),
                           ),
                         ),
                       ],
@@ -153,7 +153,7 @@ class _OursJobState extends State<OursJob> {
                         Expanded(
                           child: Text(
                             "Gri Su Sistemleri ile Su Tüketimini Minimalize Ediyoruz.",
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 15),
                           ),
                         ),
                       ],
@@ -166,7 +166,7 @@ class _OursJobState extends State<OursJob> {
                         Expanded(
                           child: Text(
                             "Green Building Technologies İle Tamamen Kendi Enerjini Üreten Yeşil Ev Projelerimizi Hayata Geçiriyoruz.",
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 15),
                           ),
                         ),
                       ],
@@ -179,7 +179,7 @@ class _OursJobState extends State<OursJob> {
                         Expanded(
                           child: Text(
                             "Doğalgazı Hidrojen Enerjisi ile Zenginleştirerek %50'ya Varan Doğalgaz Tasarrufu Sağlıyoruz.",
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 15),
                           ),
                         ),
                       ],
