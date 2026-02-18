@@ -45,7 +45,7 @@ class _ClockChipState extends State<ClockChip> {
           color: Colors.white,
           fontWeight: FontWeight.w700,
           letterSpacing: 0.5,
-          fontSize: w * 0.012,
+          fontSize: w * 0.01,
         ),
       ),
     );

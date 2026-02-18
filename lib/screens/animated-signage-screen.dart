@@ -63,7 +63,7 @@ class _AnimatedsignagescreenState extends State<Animatedsignagescreen> with Sing
 
   Future<void> _initializeAll() async {
     // Step 1 — Initialize video first
-    _video = VideoPlayerController.asset('assets/video/sarj_reklam_full.mp4')
+    _video = VideoPlayerController.asset('assets/video/crop_cordel_reklam.mp4')
       ..setLooping(true);
 
     await _video!.initialize();
@@ -110,7 +110,7 @@ class _AnimatedsignagescreenState extends State<Animatedsignagescreen> with Sing
     if (!_initialized || _video == null) return;
     await _video!.pause();
     await _video!.setVolume(1.0);
-    await _video!.setPlaybackSpeed(0.5);
+    await _video!.setPlaybackSpeed(1.0);
     await _video!.play();
     setState(() => _isMuted = false);
   }
